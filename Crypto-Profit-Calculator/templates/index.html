@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Profit Calculator</title>
+    <script>
+        async function fetchCryptoPrice() {
+            let response = await fetch('/get_price?crypto=bitcoin');
+            let data = await response.json();
+            document.getElementById("crypto_price").innerText = `Bitcoin Price: $${data.price}`;
+        }
+
+        async function calculateProfitLoss(event) {
+            event.preventDefault();
+            let formData = new FormData(document.getElementById("calcForm"));
+            let response = await fetch('/calculate', {
+                method: 'POST',
+                body: formData
+            });
+            let data = await response.json();
+            document.getElementById("result").innerText = `Profit/Loss: $${data.profit_loss} (${data.percentage}%)`;
+        }
+    </script>
+</head>
+<body onload="fetchCryptoPrice()">
+    <h2>Crypto Profit Calculator</h2>
+    <p id="crypto_price">Loading...</p>
+    <form id="calcForm" onsubmit="calculateProfitLoss(event)">
+        <input type="number" name="buy_price" placeholder="Buy Price" required>
+        <input type="number" name="sell_price" placeholder="Sell Price" required>
+        <input type="number" name="investment" placeholder="Investment Amount" required>
+        <button type="submit">Calculate</button>
+    </form>
+    <p id="result"></p>
+</body>
+</html>

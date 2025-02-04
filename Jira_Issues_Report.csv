@@ -1,0 +1,9 @@
+Epic,Task,Priority,Status,Description
+UI Design,Build UI for Calculator,Medium,To Do,Design the basic layout using TailwindCSS
+UI Design,Add Input Fields,Medium,To Do,"Add Buy Price, Sell Price, Investment fields"
+Calculation Logic,Implement Profit/Loss Calculation,High,In Progress,Develop the formula to compute profit/loss
+Calculation Logic,Add Percentage Gain/Loss,Medium,In Progress,Implement percentage calculations
+Real-Time Price Fetching,Fetch Crypto Prices,High,In Progress,Integrate CoinGecko API
+Real-Time Price Fetching,Auto-Fill Sell Price,High,To Do,Auto-fill sell price using the latest market value
+Deployment & Optimization,Deploy to Netlify,Low,Done,Ensure the project is live
+Deployment & Optimization,Optimize Mobile Responsiveness,Medium,To Do,Ensure UI adapts well on mobile devices
